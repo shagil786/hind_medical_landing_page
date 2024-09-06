@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Define custom properties for colors */
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+/* Apply the colors based on the custom properties */
+body {
+  @apply text-[rgb(var(--foreground-rgb))] bg-gradient-to-b from-transparent via-[rgb(var(--background-end-rgb))] to-[rgb(var(--background-start-rgb))];
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Tailwind utility to balance text wrapping */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.content {
+  scale: 0.6;
+  transform-origin: top;
+  transform-origin: left;
+}
+
+.circle {
+  stroke-dasharray: 1194;
+  stroke-dashoffset: 1194;
+  animation: dc 1s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+.tick {
+  stroke-dasharray: 350;
+  stroke-dashoffset: 350;
+  animation: dt 2.7s ease-out 2;
+  animation-fill-mode: forwards;
+  animation-delay: .95s;
+}
+
+@keyframes dc {
+  from {
+    stroke-dashoffset: 1194;
+  }
+
+  to {
+    stroke-dashoffset: 2388;
+  }
+}
+
+@keyframes dt {
+  from {
+    stroke-dashoffset: 350;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
