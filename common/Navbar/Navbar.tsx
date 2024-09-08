@@ -39,7 +39,7 @@ export default function NavbarLab(props: Props) {
       <NavbarContent justify="start">
         <NavbarBrand className="mr-4">
           <Image src={logo} alt="icon" width={80} height={80} />
-          <p className="hidden md:block text-2xl font-bold dark:text-foreground text-foreground">
+          <p className="hidden md:block md:text-xl text-2xl font-bold dark:text-foreground text-foreground">
             Hind Medical Hall
           </p>
         </NavbarBrand>
@@ -82,12 +82,12 @@ export default function NavbarLab(props: Props) {
         <Button className="md:block hidden bg-blue-450">Get in Touch</Button>
         {/* cart with items */}
         <div className="relative">
-          <span className="absolute top-0 right-0 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">
+          <span className="absolute top-0 right-0 bg-foreground text-background rounded-full w-5 h-5 flex items-center justify-center text-xs">
             3
           </span>
           <FontAwesomeIcon
             icon={faCartShopping}
-            className="w-12 text-foreground"
+            className="w-12 text-blue-450"
           />
         </div>
         <Switch

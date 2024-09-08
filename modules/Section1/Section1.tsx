@@ -6,10 +6,10 @@ import StarRaiting from "./StarRaiting";
 const Section1 = () => {
   return (
     <div className="h-auto md:h-full flex flex-col w-full pb-10">
-      <div className="h-full md:h-[56vmin] py-5 m-auto flex md:flex-row flex-col w-full md:w-9/12">
+      <div className="h-full py-5 m-auto flex md:flex-row flex-col w-full md:w-9/12">
         <BannerImage className="md:hidden block" />
         <div className="w-full md:w-2/3 gap-10 flex flex-col justify-start">
-          <h1 className="text-3xl md:text-7xl leading-[2.5rem] md:leading-[5rem] mr-0 md:mr-2 font-semibold">
+          <h1 className="text-3xl md:max-xl:text-7xl xl:text-5xl leading-[2.5rem] md:leading-[5rem] mr-0 md:mr-2 font-semibold">
             Ultimate Healthcare, Today And Tomorrow
           </h1>
           <p className="text-xl text-gray-400">

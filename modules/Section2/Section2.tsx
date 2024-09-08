@@ -20,7 +20,7 @@ const Section2: React.FC<Props> = (props) => {
           {each?.map((e: any, i: number) => (
             <div
               key={`${e?.name}_${i}`}
-              className={`w-4/5 m-0 md:m-auto md:w-[40vmin] h-auto md:h-[32vmin] gap-4 flex flex-col items-start justify-between rounded-lg p-4 ${
+              className={`w-4/5 m-0 md:m-auto md:w-[40vmin] h-auto md:h-full gap-4 flex flex-col items-start justify-between rounded-lg p-4 ${
                 index + i >= 1
                   ? "bg-blue-450 hover:scale-105 transition-transform duration-300  "
                   : "bg-blue-950"

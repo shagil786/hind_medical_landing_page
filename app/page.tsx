@@ -25,6 +25,9 @@ import Section4 from "@/modules/Section4/Section4";
 import { medicalData } from "@/public/data";
 import { useProduct } from "@/provider/ProductProvider";
 import Section5 from "@/modules/Section5/Section5";
+import Section6 from "@/modules/Section6/Section6";
+import Section7 from "@/modules/Section7/Section7";
+import Footer from "@/modules/Footer/Footer";
 
 export default function Dashboard() {
   const { products } = useTable();
@@ -53,6 +56,9 @@ export default function Dashboard() {
         dropdown={dropdown}
         handleShow={handleShow}
       />
+      <Section6/>
+      <Section7/>
+      <Footer/>
       {/* <DrawerComponent
         show={showDropdown}
         onChange={(value: boolean) => setShowDropdown(value)}

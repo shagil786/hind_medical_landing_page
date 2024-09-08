@@ -40,9 +40,9 @@ const Section5: React.FC<Props> = (props) => {
 
   return (
     <>
-      <div className="h-full md:my-10 my-5 py-10 w-full flex flex-col items-center text-foreground">
+      <div className="h-auto md:my-10 my-5 py-10 w-full flex flex-col items-center text-foreground">
         <div className="flex md:flex-row flex-col-reverse justify-between gap-10 w-full md:w-9/12">
-          <div className="md:pr-10 pr-0 w-full flex flex-col gap-10 text-left dark:text-foreground text-blue-950">
+          <div className="md:pr-10 pr-0 md:mt-0 mt-28 w-full flex flex-col gap-10 text-left dark:text-foreground text-blue-950">
             <h1 className="text-3xl md:text-4xl md:text-left text-center font-semibold">
               Welcome To Our <span className="block">Online Pharmacy</span>
             </h1>
@@ -57,8 +57,8 @@ const Section5: React.FC<Props> = (props) => {
               <li>Long term care service</li>
               <li>Fast shipping</li>
             </ol>
-            <Button className="bg-blue-450 text-white py-6 px-8 md:m-0 m-auto rounded-md w-fit">
-              Buy Now
+            <Button className="bg-blue-450 text-white py-6 px-8 rounded-md w-fit">
+              Buy Medicine
             </Button>
           </div>
           <div className="pl-0 md:pl-10 w-full relative">
@@ -78,7 +78,7 @@ const Section5: React.FC<Props> = (props) => {
               </button>
             </CardFooter>
           </Card> */}
-            <Card className="md:block hidden absolute bottom-0 left-0 bg-blue-450 text-white p-4 rounded-xl hover:scale-105 shadow-xl">
+            <Card className="md:translate-y-0 translate-y-1/2 absolute bottom-0 left-0 right-0 md:right-unset md:w-fit w-9/12 md:m-0 m-auto bg-blue-450 text-white p-4 rounded-xl hover:scale-105 shadow-xl">
               {showSuccess ? (
                 <CardBody>
                   <Tick />
@@ -143,7 +143,7 @@ const Section5: React.FC<Props> = (props) => {
                       />
 
                       <Button
-                        className="bg-white text-blue-450 py-2 px-4 rounded-md w-fit"
+                        className="bg-white text-blue-450 py-2 px-4 rounded-md w-full md:w-fit"
                         type="submit"
                       >
                         Enquire
@@ -156,82 +156,6 @@ const Section5: React.FC<Props> = (props) => {
           </div>
         </div>
       </div>
-      <DraggableButton onClick={() => handleShow(true)} />
-      <DrawerComponent show={dropdown} onChange={handleShow}>
-        <Card className="text-foreground p-4 rounded-xl dark:bg-black space-y-4">
-          {showSuccess ? (
-            <CardBody>
-              <Tick />
-              <h1 className="text-2xl md:text-3xl font-semibold">Thank you!</h1>
-              <p className="text-lg md:text-xl">
-                We will get back to you soon.
-              </p>
-            </CardBody>
-          ) : (
-            <>
-              <CardHeader className="border-b border-gray py-2">
-                <h1 className="text-md font-semibold">Get Help.</h1>
-              </CardHeader>
-              <CardBody>
-                <Form
-                  control={control}
-                  onSubmit={({ data }) => formSubmit(data)}
-                  className="flex flex-col gap-4"
-                >
-                  <Controller
-                    name="number"
-                    control={control}
-                    rules={{
-                      required: "Mobile number is required",
-                      pattern: {
-                        value: /^[0-9]{10}$/,
-                        message: "Invalid mobile number",
-                      },
-                    }}
-                    render={({ field }) => (
-                      <Input
-                        {...field}
-                        placeholder="Mobile Number"
-                        className=" text-white"
-                        maxLength={10}
-                        onKeyDown={(e) => {
-                          if (
-                            e.key !== "Backspace" &&
-                            e.key !== "Tab" &&
-                            (e.key < "0" || e.key > "9")
-                          ) {
-                            e.preventDefault();
-                          }
-                        }}
-                      />
-                    )}
-                  />
-                  <Controller
-                    name="name"
-                    control={control}
-                    rules={{ required: "Name is required" }}
-                    render={({ field }) => (
-                      <Input
-                        {...field}
-                        placeholder="Name"
-                        className=" text-white"
-                        style={{ textTransform: "capitalize" }}
-                      />
-                    )}
-                  />
-
-                  <Button
-                    className="bg-foreground text-background py-2 px-4 rounded-md w-full md:w-fit"
-                    type="submit"
-                  >
-                    Enquire
-                  </Button>
-                </Form>
-              </CardBody>
-            </>
-          )}
-        </Card>
-      </DrawerComponent>
     </>
   );
 };
