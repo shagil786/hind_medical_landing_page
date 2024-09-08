@@ -14,7 +14,7 @@ const Footer = () => {
         <Image src={profileIcon} alt="profile_icon" width={100} height={100} />
         <p>Hind Medical Hall</p>
       </div>
-      <div className="grid grid-rows-2 gap-4 text-lg font-semibold text-gray-700">
+      <div className="grid grid-rows-2 gap-4 text-lg font-semibold text-gray-700 dark:text-white">
         <div className="grid grid-cols-2">
           <a>Home</a>
           <a>About Us</a>
@@ -37,7 +37,7 @@ const Footer = () => {
         <div className="flex flex-col gap-4">
           <Link
             href="mailto:hindmedicalhall@gmail.com"
-            className="flex items-center gap-2 text-blue-950"
+            className="flex items-center gap-2 text-blue-950 darK:text-white"
           >
             <FontAwesomeIcon
               icon={faEnvelope}
@@ -47,7 +47,7 @@ const Footer = () => {
           </Link>
           <Link
             href="tel:+918210041012"
-            className="flex items-center gap-2 text-blue-950"
+            className="flex items-center gap-2 text-blue-950 darK:text-white"
           >
             <FontAwesomeIcon icon={faPhone} className="h-6 w-6 text-blue-450" />
             <span>+91 82100-41012</span>
