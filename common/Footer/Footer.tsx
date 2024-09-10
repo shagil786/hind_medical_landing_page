@@ -37,7 +37,7 @@ const Footer = () => {
         <div className="flex flex-col gap-4">
           <Link
             href="mailto:hindmedicalhall@gmail.com"
-            className="flex items-center gap-2 text-blue-950 darK:text-white"
+            className="flex items-center gap-2 text-blue-950 dark:text-white"
           >
             <FontAwesomeIcon
               icon={faEnvelope}
@@ -47,14 +47,14 @@ const Footer = () => {
           </Link>
           <Link
             href="tel:+918210041012"
-            className="flex items-center gap-2 text-blue-950 darK:text-white"
+            className="flex items-center gap-2 text-blue-950 dark:text-white"
           >
             <FontAwesomeIcon icon={faPhone} className="h-6 w-6 text-blue-450" />
             <span>+91 82100-41012</span>
           </Link>
         </div>
         <p className="text-base text-center">
-          © HindMedical Hall. All Rights Reserved 2024{" "}
+          © HindMedical Hall. All Rights Reserved 2024
           <Link href="#">Licensing</Link>.
         </p>
       </div>

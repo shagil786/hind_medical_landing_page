@@ -6,6 +6,7 @@ import { NextThemeProvider } from "@/provider/NextThemeProvider";
 import NavLayout from "@/common/Navbar/NavLayout";
 import { TableProvider } from "@/provider/TableProvider";
 import { ProductProvider } from "@/provider/ProductProvider";
+import Footer from "@/common/Footer/Footer";
 
 const inter = Noto_Sans({
   subsets: ["latin"],
@@ -25,18 +26,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ProductProvider>
-          <TableProvider>
-            <NextThemesProvider attribute="class" defaultTheme="dark">
-              <NextThemeProvider>
-                <NavLayout />
-                <main className="flex h-full overflow-auto flex-col items-center p-4 py-10 md:p-10 text-black bg-white dark:text-white dark:bg-black">
-                  {children}
-                </main>
-              </NextThemeProvider>
-            </NextThemesProvider>
-          </TableProvider>
-        </ProductProvider>
+        <NextThemesProvider attribute="class" defaultTheme="dark">
+          <NextThemeProvider>
+              {children}
+          </NextThemeProvider>
+        </NextThemesProvider>
       </body>
     </html>
   );

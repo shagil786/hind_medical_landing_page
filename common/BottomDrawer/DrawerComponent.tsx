@@ -13,7 +13,7 @@ import { Button, Input, Spinner } from "@nextui-org/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { Card, CardFooter, CardHeader, CardBody } from "@nextui-org/react";
-import Tick from "@/modules/Section5/tick";
+import Tick from "@/modules/dashboard/components/Section5/tick";
 import { Controller, Form } from "react-hook-form";
 import useScreenSize from "@/utils/useScreenSize";
 
