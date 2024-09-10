@@ -11,7 +11,7 @@ interface CredentialsProps {
     password: string;
 }
 
-export const authOptions = {
+const authOptions = {
     providers: [
         CredentialsProvider({
             type: 'credentials',
