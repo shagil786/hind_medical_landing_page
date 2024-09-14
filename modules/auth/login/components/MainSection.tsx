@@ -3,17 +3,44 @@ import InputField from "@/common/CommonInput/CommonInput";
 import { Button, Input } from "@nextui-org/react";
 import React from "react";
 import { useForm } from "react-hook-form";
+import { FaFacebook, FaTwitter, FaGoogle, FaApple } from "react-icons/fa";
 
 interface Props {
   onSubmit: any;
+  validatePassword: any;
 }
 interface LoginFormInputs {
   email: string;
   password: string;
 }
 
+const deviceType = /iPhone|iPad|iPod|Macintosh/.test(navigator.userAgent);
+
+const socialLogin = (
+  <div className="flex flex-col space-y-4 mt-6">
+    <button className="flex items-center justify-center w-full p-2 bg-blue-600 text-white rounded-md">
+      <FaFacebook className="mr-2" />
+      Continue with Facebook
+    </button>
+    <button className="flex items-center justify-center w-full p-2 bg-blue-400 text-white rounded-md">
+      <FaTwitter className="mr-2" />
+      Continue with Twitter
+    </button>
+    <button className="flex items-center justify-center w-full p-2 bg-red-600 text-white rounded-md">
+      <FaGoogle className="mr-2" />
+      Continue with Google
+    </button>
+    {deviceType && (
+      <button className="flex items-center justify-center w-full p-2 bg-black text-white rounded-md">
+        <FaApple className="mr-2" />
+        Continue with Apple
+      </button>
+    )}
+  </div>
+);
+
 const MainSection: React.FC<Props> = (props) => {
-  const { onSubmit } = props;
+  const { onSubmit, validatePassword } = props;
   const {
     register,
     handleSubmit,
@@ -31,25 +58,12 @@ const MainSection: React.FC<Props> = (props) => {
   const password = watch("password");
   const disabled = !isValid || !email || !password;
 
-  const validatePassword = (password: string) => {
-    if (password.length < 8) {
-      return "Password must be at least 8 characters long";
-    }
-    if (!/[a-zA-Z]/.test(password)) {
-      return "Password must contain at least one letter";
-    }
-    if (!/\d/.test(password)) {
-      return "Password must contain at least one number";
-    }
-    if (!/[^\w\s]/.test(password)) {
-      return "Password must contain at least one special character";
-    }
-    return true; // Return true if all validation checks pass
-  };
-
   return (
     <main className="flex h-full overflow-auto flex-col items-center p-4 py-10 md:p-10 text-black bg-white dark:text-white dark:bg-black">
-      <form onSubmit={handleSubmit(onSubmit)} className="w-9/12 relative h-full">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="w-9/12 relative h-full"
+      >
         <InputField
           type="email"
           id="email"
@@ -77,6 +91,7 @@ const MainSection: React.FC<Props> = (props) => {
           }}
           error={errors.password?.message}
         />
+        <p className="text-blue-450">Forgort Password?</p>
         <Button
           className="w-full bg-blue-450 disabled:bg-default absolute bottom-0"
           type="submit"
@@ -84,6 +99,12 @@ const MainSection: React.FC<Props> = (props) => {
         >
           Login
         </Button>
+        <div className="flex justify-between items-center my-4">
+          <hr className="w-full" />
+          <p className="px-4">OR</p>
+          <hr className="w-full" />
+        </div>
+        {socialLogin}
       </form>
     </main>
   );
